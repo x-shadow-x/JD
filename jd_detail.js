@@ -66,8 +66,9 @@ for(var i=0; i<imgs.length;i++){
 		//product-s1.jpg小图片路径
 		//product-s1-m.jpg中图片路径
 		var src=this.src;
-		var dotIndex=src.indexOf(".");
-		mimg.src=src.substring(0,dotIndex)+"-m"+src.substring(dotIndex);
+		var dotIndex=src.lastIndexOf(".");
+		var sIndex = src.indexOf("D");
+		mimg.src=src.substring(sIndex + 2,dotIndex)+"-m"+src.substring(dotIndex);
 	}
 }
 /*显示发大图*/
@@ -90,8 +91,9 @@ function zoom(evt){
 	//product-s1-m.jpg中图片路径
 	//product-s1-l.jpg大图片路径
 	var src=mimg.src;
-	var dotIndex=src.indexOf(".");
-	src=src.substring(0,dotIndex-1)+"l"+src.substring(dotIndex);
+	var sIndex = src.index("D");
+	var dotIndex=src.lastIndexOf(".");
+	src=src.substring(sIndex + 2,dotIndex-1)+"l"+src.substring(dotIndex);
 	largeDiv.style.backgroundImage="url("+src+")";
 	largeDiv.style.backgroundPositionX=(-2)*left+"px";
 	largeDiv.style.backgroundPositionY=(-2)*top+"px";
