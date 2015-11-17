@@ -91,9 +91,8 @@ function zoom(evt){
 	//product-s1-m.jpg中图片路径
 	//product-s1-l.jpg大图片路径
 	var src=mimg.src;
-	var sIndex = src.index("D");
 	var dotIndex=src.lastIndexOf(".");
-	src=src.substring(sIndex + 2,dotIndex-1)+"l"+src.substring(dotIndex);
+	src=src.substring(0,dotIndex-1)+"l"+src.substring(dotIndex);
 	largeDiv.style.backgroundImage="url("+src+")";
 	largeDiv.style.backgroundPositionX=(-2)*left+"px";
 	largeDiv.style.backgroundPositionY=(-2)*top+"px";
